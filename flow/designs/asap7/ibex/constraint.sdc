@@ -1,6 +1,11 @@
 set clk_name  core_clock
 set clk_port_name clk_i
-set clk_period 2000 
+
+set clk_period            2000
+if { [info exists ::env(CLK_PERIOD)] } {
+  set clk_period            $::env(CLK_PERIOD)
+}
+
 set clk_io_pct 0.2
 
 set clk_port [get_ports $clk_port_name]
